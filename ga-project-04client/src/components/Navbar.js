@@ -12,6 +12,8 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
     setIsLoggedIn(false);
     navigate("/");
   };
+
+  const getInsurance = () => {};
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -45,7 +47,7 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
                   component="div"
                   sx={{ mr: 2 }}
                 >
-                  Log Out
+                  Logout
                 </Typography>
               </Link>
             </>

@@ -5,7 +5,12 @@
     justify-content: center;
     padding-top: 160px;
     font-family: 'Rubik Puddles', cursive;
-
+    flex-direction: column;
+    position: absolute;
+    /* top: 50%; */
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -70px;
     img{
         height:250px;
     }

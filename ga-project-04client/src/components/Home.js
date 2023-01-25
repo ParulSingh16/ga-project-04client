@@ -1,13 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import Insurance from "../assets/Insurance.png";
 import "../styles/Home.scss";
 
-const Home = () => (
-  <section className="Home">
-    <img src={Insurance} alt=" our partners" />
-    <div className="welcome">
-      <h1>Get and feel secured</h1>
+export const Home = () => {
+  const navigate = useNavigate();
+  const onHomeClick = () => {
+    navigate("/insurance");
+  };
+  return (
+    <div className="Home">
+      <div className="welcome">
+        <h1>Get and feel secured</h1>
+      </div>
+      <div>
+        <img
+          src={Insurance}
+          onClick={onHomeClick}
+          style={{ cursor: "pointer" }}
+        />
+      </div>
     </div>
-  </section>
-);
-
-export default Home;
+  );
+};

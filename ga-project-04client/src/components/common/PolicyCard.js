@@ -6,18 +6,17 @@ import {
   Typography,
   CardActionArea,
 } from "@mui/material";
-import { useNavigate } from "react-router-dom";
 
-export default function PartnerCard({ name, id }) {
-  const navigate = useNavigate();
-  const navigateToPartner = () => navigate(`/partners/${id}`);
+export default function PolicyCard({ name, onClick }) {
+  const cardClicked = () => {
+    onClick(name);
+  };
   return (
-    <Card sx={{ maxWidth: 345 }}>
-      <CardActionArea onClick={navigateToPartner}>
+    <Card sx={{ maxWidth: 345 }} onClick={cardClicked}>
+      <CardActionArea>
         <CardMedia
           component="img"
           height="450"
-          alt="name"
           sx={{ maxHeight: 345, objectFit: "contain" }}
         />
         <CardContent>

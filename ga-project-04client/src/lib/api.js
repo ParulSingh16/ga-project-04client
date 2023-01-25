@@ -2,9 +2,12 @@ import axios from "axios";
 import { AUTH } from "./auth";
 
 const ENDPOINTS = {
-  allPartners: `${process.env.REACT_APP_BASE_URL}/api/partners/`,
   login: `${process.env.REACT_APP_BASE_URL}/api/auth/login/`,
   register: `${process.env.REACT_APP_BASE_URL}/api/auth/register/`,
+  allProviders: `${process.env.REACT_APP_BASE_URL}/api/partners/`,
+  allPolicies: `${process.env.REACT_APP_BASE_URL}/api/policies/`,
+  getProviderForPolicyByName: (policyName) =>
+    `${process.env.REACT_APP_BASE_URL}/api/policies/${policyName}`,
 };
 
 const getHeaders = () => ({
