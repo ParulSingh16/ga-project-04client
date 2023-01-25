@@ -4,6 +4,18 @@ import Autocomplete from "@mui/material/Autocomplete";
 import parse from "autosuggest-highlight/parse";
 import match from "autosuggest-highlight/match";
 import { AUTH } from "../../lib/auth";
+import { makeStyles } from "@mui/styles";
+import { border, color, width } from "@mui/system";
+
+const useStyles = makeStyles({
+  root: {
+    border: "1px solid white",
+    color: "white",
+  },
+  popupIndicator: {
+    color: "white",
+  },
+});
 
 // taken from https://mui.com/material-ui/react-autocomplete/
 //Autocomplete search bar to search for pre-defined products
@@ -12,22 +24,33 @@ export const SearchBar = ({ getSelectedProduct }) => {
 
   const [selectedProduct, setSelectedProduct] = React.useState("");
 
+  const classes = useStyles();
   const onFindProviderButtonClick = () => {
     getSelectedProduct(selectedProduct);
   };
   return (
-    <div>
+    <div style={{ marginTop: "30%", marginLeft: "30%" }}>
       <Autocomplete
         id="highlights-demo"
-        sx={{ width: 300 }}
+        sx={{ width: 600 }}
         onChange={(event, value) => setSelectedProduct(value)}
         options={productsOffered}
+        classes={{
+          inputRoot: classes.root,
+          popupIndicator: classes.popupIndicator,
+        }}
         getOptionLabel={(option) => option.product}
         renderInput={(params) => (
           <TextField
             {...params}
             label="What would you like to insure?"
             margin="normal"
+            classes={{ root: classes.root }}
+            sx={{
+              "& label": {
+                color: "white",
+              },
+            }}
           />
         )}
         renderOption={(props, option, { inputValue }) => {
@@ -54,7 +77,20 @@ export const SearchBar = ({ getSelectedProduct }) => {
           );
         }}
       />
-      <button onClick={onFindProviderButtonClick}>Find Providers</button>
+      <button
+        onClick={onFindProviderButtonClick}
+        style={{
+          marginLeft: "20%",
+          fontSize: "18px",
+          borderRadius: "4px",
+          border: "none",
+          width: "300px",
+          backgroundColor: "#397dd7",
+          color: "white",
+        }}
+      >
+        Find Providers
+      </button>
     </div>
   );
 };
