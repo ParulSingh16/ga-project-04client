@@ -5,6 +5,10 @@ import PolicyCard from "./common/PolicyCard";
 import { Container, Grid } from "@mui/material";
 import { SearchBar } from "./common/SearchBar";
 import { useNavigate } from "react-router-dom";
+import Repair from "../assets/repair.png";
+import Theft from "../assets/theft.png";
+import Happy from "../assets/theft.png";
+import Damage from "../assets/theft.png";
 
 export default function InsuranceIndex() {
   const [policies, setPolicies] = useState(null);
@@ -42,11 +46,14 @@ export default function InsuranceIndex() {
   };
 
   return (
-    <Container maxWidth="lg">
+    <Container
+      maxWidth="lg"
+      sx={{ marginTop: "25px", backgroundColor: "#000103" }}
+    >
       {search ? (
         <SearchBar getSelectedProduct={getSelectedProduct} />
       ) : (
-        <Grid container spacing={2}>
+        <Grid container spacing={2} style={{ backgroundColor: "#000103" }}>
           {policies
             ?.filter(
               (value, index, self) =>
@@ -58,6 +65,7 @@ export default function InsuranceIndex() {
                   name={policy.name}
                   key={policy.id}
                   onClick={onClick}
+                  imageName={policy.name}
                 />
               </Grid>
             ))}

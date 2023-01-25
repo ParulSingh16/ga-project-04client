@@ -18,20 +18,20 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar variant="dense">
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Typography
               variant="h6"
-              color="inherit"
+              color="white"
               component="div"
               sx={{ mr: 2 }}
             >
               Home
             </Typography>
           </Link>
-          <Link to="/insurance">
+          <Link to="/insurance" style={{ textDecoration: "none" }}>
             <Typography
               variant="h6"
-              color="inherit"
+              color="white"
               component="div"
               sx={{ mr: 2 }}
             >
@@ -40,12 +40,12 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
           </Link>
           {isLoggedIn ? (
             <>
-              <Link to="/" onClick={logout}>
+              <Link to="/" onClick={logout} style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
-                  color="inherit"
+                  color="white"
                   component="div"
-                  sx={{ mr: 2 }}
+                  sx={{ mr: 2, borderBottom: "none" }}
                 >
                   Logout
                 </Typography>
@@ -53,7 +53,7 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
             </>
           ) : (
             <>
-              <Link to="/login">
+              <Link to="/login" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
                   color="inherit"
@@ -63,7 +63,7 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
                   Login
                 </Typography>
               </Link>
-              <Link to="/register">
+              <Link to="/register" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
                   color="inherit"

@@ -7,7 +7,9 @@ import {
   CardActionArea,
 } from "@mui/material";
 
-export default function PolicyCard({ name, onClick }) {
+import Repair from "../../assets/repair.png";
+
+export default function PolicyCard({ name, onClick, imageName }) {
   const cardClicked = () => {
     onClick(name);
   };
@@ -17,10 +19,16 @@ export default function PolicyCard({ name, onClick }) {
         <CardMedia
           component="img"
           height="450"
+          image={Repair}
           sx={{ maxHeight: 345, objectFit: "contain" }}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ textAlign: "center" }}
+          >
             {name}
           </Typography>
         </CardContent>
