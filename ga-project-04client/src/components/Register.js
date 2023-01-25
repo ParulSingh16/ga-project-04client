@@ -4,9 +4,18 @@ import { TextField, Button, Container } from "@mui/material";
 import { API } from "../lib/api";
 import { AUTH } from "../lib/auth";
 import { NOTIFY } from "../lib/notifications";
+import { makeStyles } from "@mui/styles";
+
+const useStyles = makeStyles({
+  root: {
+    border: "1px solid white",
+    color: "white",
+  },
+});
 
 export default function Register() {
   const navigate = useNavigate();
+  const classes = useStyles();
   const [formFields, setFormFields] = useState({
     email: "",
     username: "",
@@ -84,7 +93,17 @@ export default function Register() {
             value={formFields.username}
             onChange={handleChange}
             error={error}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
         <div>
@@ -98,7 +117,17 @@ export default function Register() {
             value={formFields.first_name}
             onChange={handleChange}
             error={error}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
         <div>
@@ -112,7 +141,17 @@ export default function Register() {
             value={formFields.last_name}
             onChange={handleChange}
             error={error}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
         <div>
@@ -126,7 +165,17 @@ export default function Register() {
             value={formFields.email}
             onChange={handleChange}
             error={error}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
         <div>
@@ -140,7 +189,17 @@ export default function Register() {
             value={formFields.password}
             onChange={handleChange}
             error={error}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
         <div>
@@ -154,10 +213,34 @@ export default function Register() {
             value={formFields.password_confirmation}
             onChange={handleChange}
             error={error}
-            sx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
-        <Button type="submit">CREATE ACCOUNT</Button>
+        <Button
+          type="submit"
+          style={{
+            marginLeft: "20%",
+            fontSize: "18px",
+            borderRadius: "6px",
+            border: "none",
+            marginBottom: "10px",
+            width: "200px",
+            backgroundColor: "#397dd7",
+            color: "white",
+          }}
+        >
+          CREATE ACCOUNT
+        </Button>
       </form>
     </Container>
   );

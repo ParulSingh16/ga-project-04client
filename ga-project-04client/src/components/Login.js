@@ -4,12 +4,21 @@ import { API } from "../lib/api";
 import { NOTIFY } from "../lib/notifications";
 import { AUTH } from "../lib/auth";
 import { useAuthenticated } from "../hooks/useAuthenticated";
+import { makeStyles } from "@mui/styles";
 
 import { TextField, Button } from "@mui/material";
 import { Container } from "@mui/system";
 
+const useStyles = makeStyles({
+  root: {
+    border: "1px solid white",
+    color: "white",
+  },
+});
+
 export default function Login() {
   const navigate = useNavigate();
+  const classes = useStyles();
   const [formFields, setFormFields] = useState({
     email: "",
     password: "",
@@ -26,7 +35,7 @@ export default function Login() {
       .then(({ data }) => {
         NOTIFY.SUCCESS(data.message);
         AUTH.setToken(data.token);
-        navigate("/partners");
+        navigate("/insurance");
       })
       .catch((e) => {
         console.log(e);
@@ -65,7 +74,17 @@ export default function Login() {
             value={formFields.email}
             onChange={handleChange}
             error={error.email}
-            ssx={{ mb: 2 }}
+            sx={{
+              mb: 2,
+              width: 300,
+              color: "white !important",
+              border: "1px solid white",
+              "& label": {
+                color: "white",
+              },
+            }}
+            classes={{ root: classes.root }}
+            inputProps={{ style: { color: "white" } }}
           />
         </div>
         <div>
@@ -81,9 +100,34 @@ export default function Login() {
             onChange={handleChange}
             variant="outlined"
             error={error.password}
+            sx={{
+              mb: 2,
+              width: 300,
+              border: "1px solid white",
+              color: "white !important",
+              "& label": {
+                color: "white",
+              },
+            }}
+            inputProps={{ style: { color: "white" } }}
+            classes={{ root: classes.root }}
           />
         </div>
-        <Button type="submit">Login</Button>
+        <Button
+          type="submit"
+          style={{
+            marginLeft: "20%",
+            fontSize: "18px",
+            borderRadius: "6px",
+            border: "none",
+            marginBottom: "10px",
+            width: "200px",
+            backgroundColor: "#397dd7",
+            color: "white",
+          }}
+        >
+          Login
+        </Button>
       </form>
     </Container>
   );

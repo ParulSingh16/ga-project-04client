@@ -8,11 +8,20 @@ import {
 } from "@mui/material";
 
 export default function ProviderCard({ name, id, policyName, productName }) {
+  const onClickBuy = () => {
+    const storage = window.localStorage;
+    if (storage.length === 0) {
+      window.alert("Please Login or Register To Proceed");
+    } else {
+      //Need to do a post request here
+    }
+  };
+
   return (
     <Card sx={{ maxWidth: 345, marginTop: "50px" }}>
       <CardActionArea>
         <CardMedia
-          // component="img"
+          component=""
           height="450"
           sx={{ maxHeight: 345, objectFit: "contain" }}
         />
@@ -31,7 +40,7 @@ export default function ProviderCard({ name, id, policyName, productName }) {
               component="div"
               sx={{ fontSize: "30px" }}
             >
-              {policyName}
+              {policyName} Cover
             </Typography>
           </div>
           <div
@@ -53,7 +62,7 @@ export default function ProviderCard({ name, id, policyName, productName }) {
           </div>
           <div
             style={{
-              backgroundColor: "rgb(255 176 13)",
+              backgroundColor: "rgb(61 123 255)",
               borderRadius: "8px",
               textAlign: "center",
               color: "white",
@@ -87,6 +96,7 @@ export default function ProviderCard({ name, id, policyName, productName }) {
           </div>
         </CardContent>
         <button
+          onClick={onClickBuy}
           style={{
             marginLeft: "20%",
             fontSize: "18px",

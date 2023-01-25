@@ -13,7 +13,6 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
     navigate("/");
   };
 
-  const getInsurance = () => {};
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -56,7 +55,7 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
               <Link to="/login" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
-                  color="inherit"
+                  color="white"
                   component="div"
                   sx={{ mr: 2 }}
                 >
@@ -66,7 +65,7 @@ const Navbar = ({ searchedBeers, setSearchedBeers }) => {
               <Link to="/register" style={{ textDecoration: "none" }}>
                 <Typography
                   variant="h6"
-                  color="inherit"
+                  color="white"
                   component="div"
                   sx={{ mr: 2 }}
                 >

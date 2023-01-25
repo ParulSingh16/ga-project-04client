@@ -5,10 +5,6 @@ import PolicyCard from "./common/PolicyCard";
 import { Container, Grid } from "@mui/material";
 import { SearchBar } from "./common/SearchBar";
 import { useNavigate } from "react-router-dom";
-import Repair from "../assets/repair.png";
-import Theft from "../assets/theft.png";
-import Happy from "../assets/theft.png";
-import Damage from "../assets/theft.png";
 
 export default function InsuranceIndex() {
   const [policies, setPolicies] = useState(null);

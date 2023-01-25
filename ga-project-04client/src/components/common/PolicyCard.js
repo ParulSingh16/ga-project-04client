@@ -8,7 +8,16 @@ import {
 } from "@mui/material";
 
 import Repair from "../../assets/repair.png";
+import Theft from "../../assets/theft.png";
+import Happy from "../../assets/happy.png";
+import Damage from "../../assets/damage.png";
 
+const getImageName = (policyName) => {
+  if (policyName === "Repair Cover") return Repair;
+  if (policyName === "Theft Cover") return Theft;
+  if (policyName === "Damage Cover") return Damage;
+  if (policyName === "Happy Policy") return Happy;
+};
 export default function PolicyCard({ name, onClick, imageName }) {
   const cardClicked = () => {
     onClick(name);
@@ -19,7 +28,7 @@ export default function PolicyCard({ name, onClick, imageName }) {
         <CardMedia
           component="img"
           height="450"
-          image={Repair}
+          image={getImageName(name)}
           sx={{ maxHeight: 345, objectFit: "contain" }}
         />
         <CardContent>

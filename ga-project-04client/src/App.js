@@ -24,10 +24,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/insurance" element={<InsuranceIndex />} />
           <Route path="/providers" element={<ProviderIndex />} />
-          {/* <Route path="/admin" element={<CraftyBeersIndex />} />
-          <Route path="/crafty-beers/create" element={<CreateCraftyBeer />} /> */}
           <Route path="/partner/:id" element={<Partners />} />
-          {/* <Route path="/crafty-beers/:id/review" element={<ReviewBeer />} /> */}
           <Route path="/login/" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
@@ -37,10 +34,3 @@ function App() {
   );
 }
 export default App;
-
-// path('admin/', admin.site.urls),
-// path('api/partners/', include('partners.urls')),
-// path('api/policies/', include('policies.urls')),
-// path('api/auth/', include('jwt_auth.urls')),
-// path('api/purchased-policies/', include('purchased_policies.urls')),
-// ]
