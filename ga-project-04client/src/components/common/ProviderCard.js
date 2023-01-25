@@ -6,14 +6,34 @@ import {
   Typography,
   CardActionArea,
 } from "@mui/material";
+import { API } from "../../lib/api";
+import { useNavigate } from "react-router-dom";
 
-export default function ProviderCard({ name, id, policyName, productName }) {
+export default function ProviderCard({
+  name,
+  id,
+  policyName,
+  productName,
+  price,
+}) {
+  const navigate = useNavigate();
   const onClickBuy = () => {
-    const storage = window.localStorage;
-    if (storage.length === 0) {
+    if (localStorage.length === 0) {
       window.alert("Please Login or Register To Proceed");
     } else {
       //Need to do a post request here
+      API.POST(API.ENDPOINTS.allPolicies, {
+        id: "1",
+        name: policyName,
+        increase_price: Number(price),
+        provider: id,
+      })
+        .then(({ data }) => {
+          alert("Insurance Successfully Processed");
+          navigate("/insurance");
+          console.log(data);
+        })
+        .catch((e) => console.log(e));
     }
   };
 
@@ -91,7 +111,7 @@ export default function ProviderCard({ name, id, policyName, productName }) {
               component="div"
               sx={{ fontSize: "20px" }}
             >
-              {`£${(Math.random(50, 100) * 100).toFixed(0)}`}
+              {`£${price}`}
             </Typography>
           </div>
         </CardContent>
@@ -106,6 +126,7 @@ export default function ProviderCard({ name, id, policyName, productName }) {
             width: "200px",
             backgroundColor: "#397dd7",
             color: "white",
+            cursor: "pointer",
           }}
         >
           BUY
