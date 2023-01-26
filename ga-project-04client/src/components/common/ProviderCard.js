@@ -23,11 +23,11 @@ export default function ProviderCard({
     } else {
       //Need to do a post request here to save the insurance
       API.POST(API.ENDPOINTS.purchasedPolicies, {
-        id: "1",
+        id: "1", //id is normally self generated but, had to hard code because it throws an error if not provided.
         policy: id,
-        owner: 4,
+        owner: 4, //it should have been an id but, if not doing it this way it is somehow not generating the id on its own
         insured_product: productName,
-        insured_product_price: Number(price),
+        insured_product_price: Number(price), //using math.random from providerIndex
       })
         .then(({ data }) => {
           alert("Insurance Successfully Processed");
@@ -61,7 +61,7 @@ export default function ProviderCard({
               component="div"
               sx={{ fontSize: "30px" }}
             >
-              {policyName} Cover
+              {policyName}
             </Typography>
           </div>
           <div

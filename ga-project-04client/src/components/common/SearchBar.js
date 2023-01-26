@@ -37,7 +37,7 @@ export const SearchBar = ({ getSelectedProduct }) => {
         options={productsOffered}
         classes={{
           inputRoot: classes.root,
-          popupIndicator: classes.popupIndicator,
+          popupIndicator: classes.popupIndicator, //used it to change the theme as my background is dark and needed the card to be white
         }}
         getOptionLabel={(option) => option.product}
         renderInput={(params) => (
@@ -96,6 +96,7 @@ export const SearchBar = ({ getSelectedProduct }) => {
 };
 
 const productsOffered = [
+  //created this json array for dropdown options autofill
   { product: "Iphone" },
   { product: "Car" },
   { product: "Home" },
