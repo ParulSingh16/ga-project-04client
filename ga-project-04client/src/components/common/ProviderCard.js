@@ -21,12 +21,13 @@ export default function ProviderCard({
     if (localStorage.length === 0) {
       window.alert("Please Login or Register To Proceed");
     } else {
-      //Need to do a post request here
-      API.POST(API.ENDPOINTS.allPolicies, {
+      //Need to do a post request here to save the insurance
+      API.POST(API.ENDPOINTS.purchasedPolicies, {
         id: "1",
-        name: policyName,
-        increase_price: Number(price),
-        provider: id,
+        policy: id,
+        owner: 4,
+        insured_product: productName,
+        insured_product_price: Number(price),
       })
         .then(({ data }) => {
           alert("Insurance Successfully Processed");

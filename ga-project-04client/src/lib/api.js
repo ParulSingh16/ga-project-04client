@@ -6,6 +6,7 @@ const ENDPOINTS = {
   register: `${process.env.REACT_APP_BASE_URL}/api/auth/register/`,
   allProviders: `${process.env.REACT_APP_BASE_URL}/api/partners/`,
   allPolicies: `${process.env.REACT_APP_BASE_URL}/api/policies/`,
+  purchasedPolicies: `${process.env.REACT_APP_BASE_URL}/api/purchased-policies/`,
   getProviderForPolicyByName: (policyName) =>
     `${process.env.REACT_APP_BASE_URL}/api/policies/${policyName}`,
 };

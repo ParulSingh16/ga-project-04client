@@ -40,7 +40,7 @@ export const ProviderIndex = () => {
               <ProviderCard
                 name={provider.provider.name}
                 code={provider.code}
-                id={provider.provider.id}
+                id={provider.id}
                 policyName={provider.name}
                 productName={location.state.product.product}
                 price={(Math.random(50, 100) * 100).toFixed(0)}
